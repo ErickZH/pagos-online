@@ -35,5 +35,8 @@
     "url": "git://github.com/root/Pagos.git"
   },
   "author": "root",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "sails-hook-autoreload": "^1.0.0"
+  }
 }
