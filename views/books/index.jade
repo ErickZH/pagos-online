@@ -1,0 +1,8 @@
+extends ../layout
+
+block body
+    .container
+        h1 Ultimos Libros
+        each book in books
+            div
+                h3= book.title
