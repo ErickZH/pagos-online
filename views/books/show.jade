@@ -1,0 +1,11 @@
+extends ../layout
+
+block body
+  .card.no-padding
+    header
+    
+    .large-padding
+      h1=book.title
+      p=book.description
+      p Publicado #{book.publishedAt}
+      p Páginas #{book.pages}
