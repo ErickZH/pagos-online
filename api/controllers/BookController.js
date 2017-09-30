@@ -15,6 +15,14 @@ module.exports = {
 			return res.view('books/index', {books: docs});
 		});
 	},
+	findOne: function(req, res)
+	{
+		Book.findOne({id: req.params.id}).exec(function(err, book)
+		{
+			if (err) console.log(err);
+			return res.view('books/show', {book: book});
+		});
+	},
 	new: function(req, res)
 	{
 		return res.view('books/new');
