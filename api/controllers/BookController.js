@@ -14,6 +14,9 @@ module.exports = {
 		}).exec(function(err, docs){
 			return res.view('books/index', {books: docs});
 		});
-
+	},
+	new: function(req, res)
+	{
+		return res.view('books/new');
 	}
 };
