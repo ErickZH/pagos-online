@@ -1,11 +1,15 @@
 extends ../layout
 
 block body
-    h1 Ultimos Libros
-    p.text-right
-        a(href="/book/new" class="btn btn-info") Agregar libro
-    .row
-        each book in books
-            .col-xs-10.col-sm-6.col-md-4.card
-                h3= book.title
-                p= book.description
+  .row
+    .col-xs-8
+      h1 Ultimos Libros
+    .col-xs-4.text-right
+      a(href="/book/new" class="btn btn-info") Agregar libro
+  .row
+      each book in books
+        .col-xs-10.col-sm-6.col-md-4
+          .card
+            h3
+              a(href="/book/#{book.id}")= book.title
+            p= book.description
