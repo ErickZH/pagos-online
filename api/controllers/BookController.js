@@ -34,5 +34,19 @@ module.exports = {
 			if (err) console.log(err);
 			return res.view('books/edit', {book: book});
 		});
+	},
+	delete: function(req, res)
+	{
+		Book.findOne({id: req.params.id}).exec(function(err, book)
+		{
+			if (err) console.log(err);
+			return res.view('books/delete', {book: book});
+		});
+	},
+	destroy: function(req, res)
+	{
+		Book.destroy({id: req.params.id}).exec(function(err){
+			return res.redirect("/book");
+		});
 	}
 };
