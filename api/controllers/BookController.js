@@ -23,6 +23,31 @@ module.exports = {
 			return res.view('books/show', {book: book});
 		});
 	},
+	create: function(req, res)
+	{
+		req.file('avatar').upload({
+			dirname: '../../assets/images/books/avatars'
+		}, function(err, files)
+		{
+			if (err) res.negotiate(err);
+
+			var options = {
+				title: req.body.title,
+				description: req.body.description,
+				pages: req.body.pages,
+				publishedAt: req.body.publishedAt,
+			};
+
+			if (files.length > 0)
+			{
+				options['avatarUrl'] = files[0].fd.split("/").pop();
+			}
+
+			Book.create(options, function(err, newBook){
+				res.redirect('/book/'+newBook.id);
+			});
+		})
+	},
 	new: function(req, res)
 	{
 		return res.view('books/new');
