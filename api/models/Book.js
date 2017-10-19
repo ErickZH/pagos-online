@@ -20,6 +20,12 @@ module.exports = {
       },
       publishedAt:{
           type: 'date'
+      },
+      avatarUrl:{
+          type: 'string'
+      },
+      pdfUrl:{
+          type: 'string'
       }
   }
 };
