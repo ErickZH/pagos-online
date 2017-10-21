@@ -20,4 +20,16 @@ block body
                     p
                         strong No. Páginas
                         span = book.pages
-            .col-xs-12.col-sm-6
+                if book.pdfUrl
+                    p
+                        strong PDF
+                        span=book.pdfUrl
+            .col-xs-12.col-sm-6.text-right
+                a(role="button" data-toggle="collapse" href="#edit-form" aria-expanded="false" aria-controls="edit-form") Mostrar opciones avanzadas
+                
+                .collapse.text-lef#edit-form
+                    form(action="/book/#{book.id}?_method=PUT" method="POST" style="margin-top:2em" enctype="multipart/form-data")
+                        .form-group
+                            label(for="book") Archivo PDF
+                            input(type="file" name="book" class="form-control" id="book")
+                        input(type="submit" class="btn btn-success" value="Guardar PDF")
